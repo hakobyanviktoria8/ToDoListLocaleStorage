@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    *{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    .container{
+        width: 350px;
+        margin: 20px auto;
+        border: 1px solid;
+        min-height: 150px;
+        padding: 20px;
+    }
+    h1{
+        text-align: center;
+        color: blueviolet;
+    }
+    #inputValue{
+        padding: 10px;
+        width: 250px;
+        margin-top: 5px;
+    }
+    #add{
+        padding: 10px;
+    }
+    li{
+        border: 1px solid;
+        list-style: none;
+        padding: 5px;
+        margin: 10px 1px;
+    }
+    span{
+        background-color: gainsboro;
+        border-radius: 50%;
+        padding: 0 5px;
+        float: right;
+    }
+</style>
+
+<div class="container">
+    <h1>To Do List</h1>
+    <input type="text" id="inputValue">
+    <button id="add">ADD</button>
+    <ul id="uList"></ul>
+</div>
+
+
+<script>
+    add.onclick =  () => {
+        let id = +localStorage.getItem("id");
+        id ?  id+=1 : id=1;
+        localStorage.setItem("id",id);
+        uList.innerHTML +=
+            `<li>
+                ${inputValue.value}
+                <span onclick="remove(this)">&times;</span>
+            </li>`;
+        localStorage.setItem(id,inputValue.value)
+    };
+    remove = (e) => e.closest("li").outerHTML = "";
+
+</script>
+</body>
+</html>
